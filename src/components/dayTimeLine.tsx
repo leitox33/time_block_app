@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 import type { Activity, DayKey } from '../types'
 
-const LABELS = Array.from({ length: 24 }, (_, i) => {
-  if (i === 0)  return '12am'
-  if (i < 12)  return `${i}am`
-  if (i === 12) return '12pm'
-  return `${i - 12}pm`
+const LABELS = Array.from({ length: 17 }, (_, i) => {
+  const hour = i + 7  // Empezar desde hora 7 (7am)
+  if (hour < 12) return `${hour}am`
+  if (hour === 12) return '12pm'
+  return `${hour - 12}pm`
 })
 
 interface Props {
@@ -59,10 +59,11 @@ export function DayTimeline({ day, slots, activities, selectedId, onPaint }: Pro
       onMouseUp={() => { painting.current = false }}
       onMouseLeave={() => { painting.current = false }}
     >
-      {slots.map((slotId, i) => {
+      {slots.slice(14, 48).map((slotId, displayIndex) => {
+        const i = displayIndex + 14  // Índice real en el array de slots
         const act = getAct(slotId)
-        const isHour = i % 2 === 0
-        const hour = Math.floor(i / 2)
+        const isHour = displayIndex % 2 === 0
+        const labelIndex = Math.floor(displayIndex / 2)
         const showLabel = isBlockStart(i) && blockLength(i) >= 2
 
         return (
@@ -71,7 +72,7 @@ export function DayTimeline({ day, slots, activities, selectedId, onPaint }: Pro
             style={{
               display: 'flex',
               height: '28px',
-              borderTop: isHour ? '1px solid rgba(59, 130, 246, 0.15)' : '1px solid rgba(59, 130, 246, 0.05)',
+              borderTop: isHour ? '1px solid rgba(59, 130, 246, 0.2)' : '1px solid rgba(59, 130, 246, 0.08)',
               transition: 'background 0.08s ease',
               position: 'relative',
             }}
@@ -86,7 +87,7 @@ export function DayTimeline({ day, slots, activities, selectedId, onPaint }: Pro
                 paddingRight: '12px',
               }}
             >
-              {isHour ? LABELS[hour] : ''}
+              {isHour ? LABELS[labelIndex] : ''}
             </div>
 
             {/* Bloque de actividad mejorado */}
@@ -94,8 +95,8 @@ export function DayTimeline({ day, slots, activities, selectedId, onPaint }: Pro
               style={{
                 flex: 1,
                 background: act 
-                  ? `linear-gradient(90deg, ${act.color}cc 0%, ${act.color}88 100%)`
-                  : 'rgba(59, 130, 246, 0.02)',
+                  ? `linear-gradient(90deg, ${act.color}dd 0%, ${act.color}99 100%)`
+                  : 'rgba(59, 130, 246, 0.03)',
                 display: 'flex',
                 alignItems: 'center',
                 paddingLeft: '12px',
@@ -107,19 +108,19 @@ export function DayTimeline({ day, slots, activities, selectedId, onPaint }: Pro
                 cursor: 'crosshair',
                 transition: 'all 0.08s ease',
                 boxShadow: act ? `inset 0 0 12px ${act.color}44` : 'none',
-                border: act ? `1px solid ${act.color}66` : '1px solid rgba(59, 130, 246, 0.1)',
+                border: act ? `1px solid ${act.color}88` : '1px solid rgba(59, 130, 246, 0.15)',
                 position: 'relative',
               }}
               onMouseEnter={e => {
                 if (!act) {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(59, 130, 246, 0.3)';
-                  (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.05)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(59, 130, 246, 0.25)';
+                  (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.06)';
                 }
               }}
               onMouseLeave={e => {
                 if (!act) {
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(59, 130, 246, 0.1)';
-                  (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.02)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(59, 130, 246, 0.15)';
+                  (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.03)';
                 }
               }}
             >

@@ -62,7 +62,7 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
           <div className="empty-state" style={{ padding: '32px 16px' }}>
             <div className="empty-state-icon">📋</div>
             <div className="empty-state-text">Sin actividades</div>
-            <p style={{ margin: 0, fontSize: '11px', color: '#778899' }}>
+            <p style={{ margin: 0, fontSize: '11px', color: '#9ca3af' }}>
               Crea una para empezar
             </p>
           </div>
@@ -79,8 +79,8 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
               gap: '12px',
               padding: '10px 12px',
               background: selectedId === act.id 
-                ? `linear-gradient(135deg, ${act.color}22 0%, ${act.color}11 100%)`
-                : 'rgba(59, 130, 246, 0.05)',
+                ? `linear-gradient(135deg, ${act.color}15 0%, ${act.color}08 100%)`
+                : 'rgba(59, 130, 246, 0.03)',
               borderLeft: `3px solid ${selectedId === act.id ? act.color : 'transparent'}`,
               borderRadius: '6px',
               cursor: 'pointer',
@@ -88,11 +88,11 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
               border: selectedId === act.id ? `1px solid ${act.color}40` : '1px solid transparent',
             }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = `linear-gradient(135deg, ${act.color}33 0%, ${act.color}1a 100%)`;
+              (e.currentTarget as HTMLElement).style.background = `linear-gradient(135deg, ${act.color}15 0%, ${act.color}0a 100%)`;
             }}
             onMouseLeave={e => {
               if (selectedId !== act.id) {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.05)';
+                (e.currentTarget as HTMLElement).style.background = 'rgba(59, 130, 246, 0.03)';
               }
             }}
           >
@@ -111,11 +111,11 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
 
             {/* Info */}
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#e8e8e8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <div style={{ fontSize: '13px', fontWeight: 600, color: '#1f2937', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {act.name}
               </div>
               {act.summary && (
-                <div style={{ fontSize: '11px', color: '#a0aec0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                <div style={{ fontSize: '11px', color: '#6b7280', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {act.summary}
                 </div>
               )}
@@ -136,7 +136,7 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
 
       {/* Formulario */}
       {adding && (
-        <div className="anim-slide-up" style={{ padding: '12px', borderTop: '1px solid rgba(59, 130, 246, 0.1)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div className="anim-slide-up" style={{ padding: '12px', borderTop: '1px solid rgba(59, 130, 246, 0.15)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <div>
             <label className="label" style={{ marginBottom: '4px', display: 'block' }}>Nombre *</label>
             <input
@@ -196,10 +196,10 @@ export function ActivityPanel({ activities, selectedId, onSelect, onAdd, onRemov
 }
 
 const inputStyle: React.CSSProperties = {
-  background: 'rgba(255, 255, 255, 0.03)',
-  border: '1px solid #2a3f66',
+  background: 'rgba(255, 255, 255, 0.9)',
+  border: '1px solid rgba(59, 130, 246, 0.2)',
   borderRadius: '8px',
-  color: '#e8e8e8',
+  color: '#1f2937',
   padding: '10px 12px',
   fontFamily: 'inherit',
   fontSize: '13px',

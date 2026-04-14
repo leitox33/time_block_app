@@ -25,15 +25,15 @@ function App() {
             width: '12px',
             height: '12px',
             borderRadius: '50%',
-            background: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
-            boxShadow: '0 0 16px rgba(59, 130, 246, 0.6), inset 0 0 8px rgba(59, 130, 246, 0.3)',
+            background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+            boxShadow: '0 0 16px rgba(59, 130, 246, 0.4), inset 0 0 8px rgba(59, 130, 246, 0.2)',
             animation: 'glow 2s ease-in-out infinite',
           }} />
           <span style={{
             fontSize: '16px',
             fontWeight: 800,
             letterSpacing: '0.12em',
-            background: 'linear-gradient(90deg, #e8e8e8 0%, #60a5fa 100%)',
+            background: 'linear-gradient(90deg, #1f2937 0%, #2563eb 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -43,7 +43,7 @@ function App() {
         </div>
         <span className="mono" style={{
           fontSize: '11px',
-          color: '#a0aec0',
+          color: '#6b7280',
           letterSpacing: '0.08em',
           fontWeight: 600,
         }}>

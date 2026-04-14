@@ -44,8 +44,8 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
         display: 'flex',
         gap: '2px',
         padding: '12px 16px 0',
-        borderBottom: '1px solid rgba(59, 130, 246, 0.1)',
-        background: 'rgba(15, 23, 42, 0.3)',
+        borderBottom: '1px solid rgba(59, 130, 246, 0.15)',
+        background: 'rgba(255, 255, 255, 0.7)',
         overflowX: 'auto',
         backdropFilter: 'blur(8px)',
       }}>
@@ -67,13 +67,13 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
                 border: 'none',
                 borderBottom: active ? '2px solid #3b82f6' : '2px solid transparent',
                 borderRadius: '4px 4px 0 0',
-                background: active ? 'rgba(59, 130, 246, 0.1)' : 'transparent',
+        background: active ? 'rgba(59, 130, 246, 0.08)' : 'transparent',
                 cursor: 'pointer',
                 minWidth: '70px',
                 flexShrink: 0,
                 transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
               }}
-              onMouseEnter={e => !active && (e.currentTarget.style.background = 'rgba(59, 130, 246, 0.05)')}
+              onMouseEnter={e => !active && (e.currentTarget.style.background = 'rgba(59, 130, 246, 0.04)')}
               onMouseLeave={e => !active && (e.currentTarget.style.background = 'transparent')}
             >
               <span
@@ -82,7 +82,7 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
                   fontSize: '11px',
                   letterSpacing: '0.1em',
                   fontWeight: active ? 700 : 500,
-                  color: active ? '#60a5fa' : '#a0aec0',
+                  color: active ? '#2563eb' : '#6b7280',
                   transition: 'color 0.2s',
                 }}
               >
@@ -105,7 +105,7 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
                         }} 
                       />
                     ))
-                  : <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'rgba(59, 130, 246, 0.2)' }} />
+                  : <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'rgba(59, 130, 246, 0.15)' }} />
                 }
               </div>
               
@@ -126,8 +126,8 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: '16px 20px',
-        borderBottom: '1px solid rgba(59, 130, 246, 0.1)',
-        background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%)',
+        borderBottom: '1px solid rgba(59, 130, 246, 0.15)',
+        background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(249, 250, 251, 0.5) 100%)',
         backdropFilter: 'blur(8px)',
       }}>
         {/* Flecha anterior */}
@@ -135,17 +135,17 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
           onClick={prev} 
           style={{
             ...navBtn,
-            background: 'rgba(59, 130, 246, 0.1)',
+            background: 'rgba(59, 130, 246, 0.08)',
             border: '1px solid rgba(59, 130, 246, 0.2)',
-            color: '#60a5fa',
+            color: '#2563eb',
             transition: 'all 0.2s ease'
           }}
           onMouseEnter={e => { 
-            e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'; 
+            e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)'; 
             e.currentTarget.style.transform = 'scale(1.05)';
           }}
           onMouseLeave={e => { 
-            e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'; 
+            e.currentTarget.style.background = 'rgba(59, 130, 246, 0.08)'; 
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
@@ -155,11 +155,11 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
         {/* Nombre + stats */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, marginLeft: '20px' }}>
           <div>
-            <span style={{ fontSize: '20px', fontWeight: 700, color: '#e8e8e8', letterSpacing: '-0.01em', display: 'block' }}>
+            <span style={{ fontSize: '20px', fontWeight: 700, color: '#1f2937', letterSpacing: '-0.01em', display: 'block' }}>
               {currentDay.label}
             </span>
             {hoursPlanned(currentDay.key) > 0 && (
-              <span className="mono" style={{ fontSize: '11px', color: '#a0aec0', letterSpacing: '0.05em' }}>
+              <span className="mono" style={{ fontSize: '11px', color: '#6b7280', letterSpacing: '0.05em' }}>
                 {hoursPlanned(currentDay.key)}h planificadas
               </span>
             )}
@@ -208,11 +208,11 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
               transition: 'all 0.2s ease'
             }}
             onMouseEnter={e => { 
-              e.currentTarget.style.background = 'rgba(59, 130, 246, 0.2)'; 
+              e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)'; 
               e.currentTarget.style.transform = 'scale(1.05)';
             }}
             onMouseLeave={e => { 
-              e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)'; 
+              e.currentTarget.style.background = 'rgba(59, 130, 246, 0.08)'; 
               e.currentTarget.style.transform = 'scale(1)';
             }}
           >
@@ -236,10 +236,10 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
       {copyModal.open && (
         <div className="modal">
           <div className="modal-content">
-            <h2 style={{ marginTop: 0, marginBottom: '12px', fontSize: '18px', fontWeight: 700, color: '#e8e8e8' }}>
+            <h2 style={{ marginTop: 0, marginBottom: '12px', fontSize: '18px', fontWeight: 700, color: '#1f2937' }}>
               📋 Copiar {DAY_META.find(d => d.key === copyModal.from)?.label}
             </h2>
-            <p style={{ marginTop: 0, marginBottom: '24px', fontSize: '13px', color: '#a0aec0' }}>
+            <p style={{ marginTop: 0, marginBottom: '24px', fontSize: '13px', color: '#6b7280' }}>
               Selecciona el día donde deseas copiar todas las actividades
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '20px' }}>
@@ -260,8 +260,8 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
                     cursor: key === copyModal.from ? 'not-allowed' : 'pointer',
                     fontWeight: 600,
                     opacity: key === copyModal.from ? 0.4 : 1,
-                    background: key === copyModal.from ? 'rgba(59, 130, 246, 0.1)' : undefined,
-                    color: key === copyModal.from ? '#a0aec0' : undefined,
+                    background: key === copyModal.from ? 'rgba(59, 130, 246, 0.04)' : undefined,
+                    color: key === copyModal.from ? '#6b7280' : undefined,
                     border: key === copyModal.from ? '1px solid rgba(59, 130, 246, 0.2)' : undefined,
                     transition: 'all 0.2s ease',
                   }}
@@ -290,9 +290,9 @@ export function WeekView({ schedule, activities, selectedId, onPaint, onClearDay
 
 const navBtn: React.CSSProperties = {
   background: 'none',
-  border: '1px solid #1e1e1e',
+  border: '1px solid #d1d5db',
   borderRadius: '6px',
-  color: '#555',
+  color: '#6b7280',
   fontSize: '14px',
   cursor: 'pointer',
   padding: '5px 12px',

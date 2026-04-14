@@ -4,28 +4,28 @@
   flex-direction: column !important;
   height: 100vh !important;
   width: 100% !important;
-  background: linear-gradient(135deg, #0a0a0a 0%, #101015 100%) !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f3f4f6 100%) !important;
   overflow: hidden !important;
 }
 
 /* Header Principal */
 .app-header {
   flex-shrink: 0 !important;
-  background: linear-gradient(90deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 250, 251, 0.95) 100%);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(59, 130, 246, 0.1);
   padding: 16px 24px;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .app-header h1 {
   font-size: 24px;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,8 +45,8 @@
 /* Panel lateral */
 .sidebar {
   width: 280px;
-  background: rgba(15, 23, 42, 0.4);
-  border-right: 1px solid rgba(59, 130, 246, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  border-right: 1px solid rgba(59, 130, 246, 0.15);
   overflow-y: auto;
   padding: 20px;
 }
@@ -70,8 +70,8 @@
 
 /* Cards y contenedores */
 .card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
   padding: 16px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -79,16 +79,16 @@
 }
 
 .card:hover {
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(59, 130, 246, 0.05);
   border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
   transform: translateY(-2px);
 }
 
 .card.selected {
-  background: rgba(59, 130, 246, 0.12);
+  background: rgba(59, 130, 246, 0.08);
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 /* Botones mejorados */
@@ -109,34 +109,34 @@
 .btn-primary {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
 }
 
 .btn-secondary {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  color: #2563eb;
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .btn-secondary:hover {
-  background: rgba(59, 130, 246, 0.16);
-  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #2563eb;
 }
 
 .btn-danger {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ff6b6b;
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 .btn-danger:hover {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: #ff6b6b;
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #dc2626;
 }
 
 .btn-small {
@@ -153,13 +153,13 @@
 .label {
   font-size: 12px;
   font-weight: 600;
-  color: #a0aec0;
+  color: #6b7280;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .text-muted {
-  color: #778899;
+  color: #6b7280;
   font-size: 13px;
 }
 
@@ -182,20 +182,20 @@
   border-radius: 6px;
   font-size: 11px;
   font-weight: 600;
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .badge.success {
-  background: rgba(16, 185, 129, 0.2);
-  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
   border-color: rgba(16, 185, 129, 0.3);
 }
 
 .badge.warning {
-  background: rgba(245, 158, 11, 0.2);
-  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
   border-color: rgba(245, 158, 11, 0.3);
 }
 
@@ -225,7 +225,7 @@
 /* Divider */
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
   margin: 16px 0;
 }
 
